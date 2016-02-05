@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Alexander Ryan Crosby
 import random
 
 # -------------------------------------------------------------------
@@ -7,7 +7,7 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
-    
+    return random.randint(1, topLimit)
     # TO DO: ####################################################
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
@@ -44,7 +44,14 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userGuess' parameter is the answer entered by the user
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
-    
+    if userGuess < userSecretNumber:
+        print('Your guess is too low')
+        return False
+    elif userGuess > userSecretNumber:
+        print('Your guess is too high')
+        return False
+    elif userGuess == userSecretNumber:
+        return True
     # TO DO: ####################################################
     # Write code in this function that compares userGuess and   #
     # userSecretNumber. The code should:                        #
@@ -66,6 +73,14 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       True, we'll show the right answer on the screen
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
+    print('Hello dear user, let us play a game of numbers!')
+    print('give me a number for the upper limit.')
+    topLimit = int(input())
+    print('How many chances would you like?')
+    totalGuesses = int(input())
+    theNumber = generateNumber(topLimit)
+    print('Could you please guess a number between 1 and ' + str(topLimit) + ' then?')
+    
     
     # TO DO: ####################################################
     # Write code in this function that                          #
